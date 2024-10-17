@@ -9,13 +9,13 @@
 <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
     <h2 class="text-2xl font-bold mb-6 text-center">User Registration</h2>
     
-    <form>
+    <form (ngSubmit)="onSubmit()">
       <!-- First Name -->
       <div class="mb-4">
         <label for="firstname" class="block text-gray-700 font-bold mb-2">First Name</label>
         <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-blue-500">
           <span class="p-2 text-gray-500"><i class="fas fa-user"></i></span>
-          <input type="text" id="firstname" name="firstname" placeholder="Machong"
+          <input type="text" id="firstname" name="firstname" placeholder="Machong" [(ngModel)]="firstname"
                  class="w-full px-3 py-2 rounded-lg focus:outline-none">
         </div>
       </div>
@@ -25,7 +25,7 @@
         <label for="lastname" class="block text-gray-700 font-bold mb-2">Last Name</label>
         <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-blue-500">
           <span class="p-2 text-gray-500"><i class="fas fa-user"></i></span>
-          <input type="text" id="lastname" name="lastname" placeholder="Paul"
+          <input type="text" id="lastname" name="lastname" placeholder="Paul" [(ngModel)]="lastname"
                  class="w-full px-3 py-2 rounded-lg focus:outline-none">
         </div>
       </div>
@@ -35,7 +35,7 @@
         <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
         <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-blue-500">
           <span class="p-2 text-gray-500"><i class="fas fa-envelope"></i></span>
-          <input type="email" id="email" name="email" placeholder="polux@gmail.com"
+          <input type="email" id="email" name="email" placeholder="polux@gmail.com" [(ngModel)]="email"
                  class="w-full px-3 py-2 rounded-lg focus:outline-none">
         </div>
       </div>
@@ -45,7 +45,7 @@
         <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
         <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-blue-500">
           <span class="p-2 text-gray-500"><i class="fas fa-lock"></i></span>
-          <input type="password" id="password" name="password" placeholder="********"
+          <input type="password" id="password" name="password" placeholder="********" [(ngModel)]="password"
                  class="w-full px-3 py-2 rounded-lg focus:outline-none">
         </div>
       </div>
@@ -55,14 +55,14 @@
         <label for="confirmPassword" class="block text-gray-700 font-bold mb-2">Confirm Password</label>
         <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-blue-500">
           <span class="p-2 text-gray-500"><i class="fas fa-lock"></i></span>
-          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="********"
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="********" [(ngModel)]="confirmPassword"
                  class="w-full px-3 py-2 rounded-lg focus:outline-none">
         </div>
       </div>
 
       <!-- Submit Button -->
       <div>
-        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+        <button type="submit"  class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
           Register
         </button>
       </div>
