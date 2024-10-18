@@ -1,0 +1,28 @@
+<!-- menu.component.html -->
+<nav class="bg-blue-600 text-white py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-3xl font-bold">BookKeepPro</h1>
+      <div class="hidden md:flex space-x-4">
+        <a routerLink="/" class="hover:underline">Home</a>
+        <a routerLink="/sign-up" class="hover:underline cursor-pointer">Signup</a>
+        <a routerLink="/pricing" class="hover:underline">Pricing</a>
+        <a routerLink="/contact" class="hover:underline">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button id="menu-btn" class="focus:outline-none" (click)="toggleMenu()" >
+          <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-blue-600">
+      <a routerLink="/" class="block text-white px-4 py-2">Home</a>
+      <a routerLink="/features" class="block text-white px-4 py-2">Features</a>
+      <a routerLink="/pricing" class="block text-white px-4 py-2">Pricing</a>
+      <a routerLink="/contact" class="block text-white px-4 py-2">Contact</a>
+    </div>
+  </nav>
+  

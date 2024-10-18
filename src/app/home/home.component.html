@@ -1,29 +1,3 @@
-<header class="bg-blue-600 text-white py-6">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-        <h1 class="text-3xl font-bold">BookKeepPro</h1>
-        <nav class="hidden md:flex space-x-4">
-            <a href="#" class="hover:underline">Home</a>
-            <a href="#" class="hover:underline">Features</a>
-            <a href="#" class="hover:underline">Pricing</a>
-            <a href="#" class="hover:underline">Contact</a>
-        </nav>
-        <div class="md:hidden">
-            <button id="menu-btn" class="focus:outline-none">
-                <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
-                </svg>
-            </button>
-        </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-blue-600">
-        <a href="#" class="block text-white px-4 py-2">Home</a>
-        <a href="#" class="block text-white px-4 py-2">Features</a>
-        <a href="#" class="block text-white px-4 py-2">Pricing</a>
-        <a href="#" class="block text-white px-4 py-2">Contact</a>
-    </div>
-</header>
 
 <!-- Hero Section -->
 <section class="bg-blue-100 py-20">
@@ -77,12 +51,3 @@
         </div>
     </div>
 </footer>
-
-<script>
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-</script>
