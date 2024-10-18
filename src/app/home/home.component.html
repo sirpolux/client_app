@@ -1,1 +1,88 @@
-<p>home works!</p>
+<header class="bg-blue-600 text-white py-6">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+        <h1 class="text-3xl font-bold">BookKeepPro</h1>
+        <nav class="hidden md:flex space-x-4">
+            <a href="#" class="hover:underline">Home</a>
+            <a href="#" class="hover:underline">Features</a>
+            <a href="#" class="hover:underline">Pricing</a>
+            <a href="#" class="hover:underline">Contact</a>
+        </nav>
+        <div class="md:hidden">
+            <button id="menu-btn" class="focus:outline-none">
+                <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-blue-600">
+        <a href="#" class="block text-white px-4 py-2">Home</a>
+        <a href="#" class="block text-white px-4 py-2">Features</a>
+        <a href="#" class="block text-white px-4 py-2">Pricing</a>
+        <a href="#" class="block text-white px-4 py-2">Contact</a>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="bg-blue-100 py-20">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-4">Simple, Efficient Bookkeeping for Your Business</h2>
+        <p class="text-lg text-gray-600 mb-8">Keep your finances in check with our easy-to-use bookkeeping system. Designed to help small and medium-sized businesses track income, expenses, and more.</p>
+        <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-500 transition duration-300">Get Started Now</a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-12">
+    <div class="container mx-auto px-4">
+        <h3 class="text-3xl font-bold text-center mb-8">Features</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <img src="https://via.placeholder.com/300x200" alt="Feature 1" class="mb-4">
+                <h4 class="text-xl font-bold mb-2">Track Income & Expenses</h4>
+                <p class="text-gray-600">Easily monitor your income and expenses in real time, keeping your business finances in order.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <img src="https://via.placeholder.com/300x200" alt="Feature 2" class="mb-4">
+                <h4 class="text-xl font-bold mb-2">Automated Invoices</h4>
+                <p class="text-gray-600">Generate and send professional invoices to clients with just a few clicks, reducing manual work.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <img src="https://via.placeholder.com/300x200" alt="Feature 3" class="mb-4">
+                <h4 class="text-xl font-bold mb-2">Financial Reports</h4>
+                <p class="text-gray-600">Generate detailed financial reports to help you make informed decisions for your business.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="bg-blue-600 text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+        <h3 class="text-3xl font-bold mb-4">Ready to Simplify Your Bookkeeping?</h3>
+        <p class="text-lg mb-8">Join hundreds of businesses that trust BookKeepPro to manage their finances efficiently.</p>
+        <a href="#" class="bg-white text-blue-600 px-6 py-3 rounded-md hover:bg-gray-200 transition duration-300">Start Your Free Trial</a>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2024 BookKeepPro. All rights reserved.</p>
+        <div class="mt-4">
+            <a href="#" class="hover:underline mr-4">Privacy Policy</a>
+            <a href="#" class="hover:underline">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
