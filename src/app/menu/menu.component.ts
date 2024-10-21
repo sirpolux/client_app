@@ -1,19 +1,18 @@
 import { Component, OnInit, Output, output } from '@angular/core';
 import { Route, Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    CommonModule
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
-
-  
-
 
   constructor(
     private router:Router
