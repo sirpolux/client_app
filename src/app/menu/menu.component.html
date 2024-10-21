@@ -5,8 +5,8 @@
       <div class="hidden md:flex space-x-4">
         <a routerLink="/" class="hover:underline">Home</a>
         <a routerLink="/sign-up" class="hover:underline cursor-pointer">Signup</a>
-        <a routerLink="/pricing" class="hover:underline">Pricing</a>
-        <a routerLink="/contact" class="hover:underline">Contact</a>
+        <a routerLink="/login" class="hover:underline">Login</a>
+        <a *ngIf="active_tabs['dashboard']"  routerLink="/dashboard" class="hover:underline">Dashboard</a>
       </div>
       <div class="md:hidden">
         <button id="menu-btn" class="focus:outline-none" (click)="toggleMenu()" >
@@ -20,9 +20,9 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-blue-600">
       <a routerLink="/" class="block text-white px-4 py-2">Home</a>
-      <a routerLink="/features" class="block text-white px-4 py-2">Features</a>
-      <a routerLink="/pricing" class="block text-white px-4 py-2">Pricing</a>
-      <a routerLink="/contact" class="block text-white px-4 py-2">Contact</a>
+      <a routerLink="/sign-up" class="block text-white px-4 py-2">Sign up</a>
+      <a routerLink="/login" class="block text-white px-4 py-2">Login</a>
+      <a *ngIf="active_tabs['dashboard']" routerLink="/dashboard" class="block text-white px-4 py-2">Dashboard</a>
     </div>
   </nav>
   

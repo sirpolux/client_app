@@ -3,6 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ClientComponent } from './client/client.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
     {
@@ -24,5 +25,9 @@ export const routes: Routes = [
     {
         path:'sign-up',
         component:SignUpComponent
+    },
+    {
+        path:'dashboard',
+        component:DashboardComponent
     }
 ];

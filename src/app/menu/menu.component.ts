@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, output } from '@angular/core';
 import { Route, Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -12,14 +12,35 @@ import { Route, Router, RouterLink } from '@angular/router';
 })
 export class MenuComponent {
 
+  
+
+
   constructor(
     private router:Router
   ){}
+
+  @Output()
+  active_tabs:{[key:string]:boolean}={
+    'login':true,
+    'dashboard':false,
+    'signUp':true
+  };
+
+  
 
   toggleMenu(){
     const mobileMenu = document.getElementById('mobile-menu');
     if(mobileMenu){
       mobileMenu.classList.toggle('hidden');
+    
     }
   }
+
+  @Output()
+  updateActiveItems(name:string, value:boolean){
+    this.active_tabs[name]=value
+  }
+
+  
+  
 }
