@@ -5,8 +5,8 @@ import { UsersService } from '../services/api/users.service';
 import { LoginCredentialsRepresentation } from '../services/model/login-credential-representation';
 import { LoginInResponse } from '../services/model/login-response-representation';
 import { HttpErrorResponse } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../services/api/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,42 +17,46 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']  // Corrected styleUrls
 })
 export class LoginComponent {
 
-    email:string="";
-    password:string=""
+    email: string = "";
+    password: string = "";
 
     constructor(
-      private service:UsersService
-    ){
-      
-    }
+      private service: UsersService,
+      private authService: AuthService
+    ) {}
 
-    loginDataResponse:LoginInResponse={};
+  
+    loginDataResponse: LoginInResponse | undefined;
 
-    onSubmit(){
-      
-      const credentials:LoginCredentialsRepresentation ={
-        password:this.password,
-        email:this.email
-      }
-      console.log(credentials)
+    onSubmit() {
+      const credentials: LoginCredentialsRepresentation = {
+        password: this.password,
+        email: this.email
+      };
+
+      console.log(credentials);
+
       this.service.login(credentials)
-      .subscribe({
-        next:(result:LoginInResponse)=>{
-          console.log(result);
-          this.loginDataResponse = result;
-        }, 
-        error:(error:HttpErrorResponse)=>{
-          console.log(error.message)
-          if(error.error instanceof ErrorEvent){
-            console.error("An Error occur: ", error.message);
+        .subscribe({
+          next: (result: LoginInResponse) => {
+            console.log(result);
+            this.loginDataResponse = result;
+            if (this.loginDataResponse?.data?.token && this.loginDataResponse.data?.expiresAt) {
+              this.authService.updateToken(this.loginDataResponse.data.token, this.loginDataResponse.data.expiresAt);
+            }
+          },
+          error: (error: HttpErrorResponse) => {
+            console.log(error.message);
+            if (error.error instanceof ErrorEvent) {
+              console.error("An error occurred: ", error.message);
+            } else {
+              console.error("Backend returned code: ", error.status, "body was: ", error.error);
+            }
           }
-        }
-      })
-
+        });
     }
-
 }
