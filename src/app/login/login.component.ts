@@ -4,8 +4,9 @@ import { CommonModule } from '@angular/common';
 import { UsersService } from '../services/api/users.service';
 import { LoginCredentialsRepresentation } from '../services/model/login-credential-representation';
 import { LoginInResponse } from '../services/model/login-response-representation';
-import { error } from 'console';
 import { HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   imports: [
     FormsModule,
     CommonModule,
+    HttpClientModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
