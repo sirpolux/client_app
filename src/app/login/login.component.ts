@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../services/api/auth.service';
 import { MenuComponent } from '../menu/menu.component';
 import { StandardMenuService } from '../services/standard-menu.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,8 @@ export class LoginComponent {
     constructor(
       private service: UsersService,
       private authService: AuthService,
-      private menuTab:StandardMenuService
+      private menuTab:StandardMenuService,
+      private router:Router
     ) {}
 
   
@@ -56,6 +58,7 @@ export class LoginComponent {
               this.menuTab.updateActiveItems('logout',true)
               console.log("me here")
               console.log(this.menuTab.getTabs());
+              this.router.navigate(['/dashboard'])
 
             }
           },

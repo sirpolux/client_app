@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ClientRepresentation } from '../services/model/client-representation';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,4 +10,32 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
+    name?:string="";
+    accountNumber?:string="";
+    decription?:string="";
+
+    isClientModalVisible = false;
+
+    closeClientModal(){
+      this.isClientModalVisible = false;
+    }
+    openClientModal(){;
+      this.isClientModalVisible = true
+    }
+
+
+    private clientData:[ClientRepresentation]=[{}]
+
+    newClient(){
+
+    }
+
+    addClient(){
+      const clienrData:ClientRepresentation={
+          name:this.name,
+          accountNumber:this.accountNumber,
+          description:this.decription
+      }
+      console.log(clienrData)
+    }
 }
