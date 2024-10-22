@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ClientRepresentation } from '../services/model/client-representation';
 
 @Component({
   selector: 'app-dashboard-list',
@@ -9,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class DashboardListComponent {
 
+  @Input()
+  data:ClientRepresentation={}
+
+
+  @Input()
+  index:number=-1
 }
