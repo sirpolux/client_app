@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { ClientRepresentation } from '../services/model/client-representation';
 import { AuthService } from '../services/api/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-new-client',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './new-client.component.html',
   styleUrl: './new-client.component.scss'
 })

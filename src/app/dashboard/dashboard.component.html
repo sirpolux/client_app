@@ -3,7 +3,7 @@
         <!-- Add Client Button -->
         <div class="flex justify-between items-center mb-4">
             <h1 class="text-2xl font-bold">Client Dashboard</h1>
-            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" (click)="openClientModal()">
                 Add Client
             </button>
         </div>
@@ -87,28 +87,37 @@
 </div>
 
 <!-- Modal for Adding Client -->
-<div id="addClientModal" class="">
-    <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
+<div 
+[ngClass]="{
+    'hidden': !isClientModalVisible,
+    'flex': isClientModalVisible,
+    'opacity-0': !isClientModalVisible,
+    'opacity-100': isClientModalVisible
+  }"
+id="addClientModal"  class="fixed flex inset-0 bg-gray-600 bg-opacity-50  justify-center items-center z-50 transition-property: all transition-duration: 1000ms  ease-in-out">
+    <div  class="bg-white p-6 rounded-lg shadow-lg w-1/3 transform transition-transform duration-900" 
+    [ngClass]="{ 'scale-95': !isClientModalVisible, 'scale-100': isClientModalVisible }"
+    >
         <div class="flex justify-between items-center">
             <h2 class="text-xl font-bold">Add New Client</h2>
-            <button class="text-gray-500 hover:text-gray-700" onclick="closeModal()">&#x2715;</button>
+            <button class="text-gray-500 hover:text-gray-700" (click)="closeClientModal()">&#x2715;</button>
         </div>
         <form method="POST" action="/add-client">
             <div class="mt-4">
                 <label for="name" class="block text-gray-700">Name</label>
-                <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded mt-2" placeholder="Full name"/>
+                <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded mt-2" placeholder="Full name" [(ngModel)]="name" />
             </div>
             <div class="mt-4">
                 <label for="accountNumber" class="block text-gray-700">Account Number</label>
-                <input type="text" id="accountNumber" name="accountNumber" class="w-full p-2 border border-gray-300 rounded mt-2" placeholder="Account number" />
+                <input type="text" id="accountNumber" name="accountNumber" class="w-full p-2 border border-gray-300 rounded mt-2" placeholder="Account number" [(ngModel)]="accountNumber" />
             </div>
             <div class="mt-4">
                 <label for="description" class="block text-gray-700">Description</label>
-                <textarea id="description" name="description" class="w-full p-2 border border-gray-300 rounded mt-2" rows="3" placeholder="Please enter a brief description"></textarea>
+                <textarea id="description" name="description" class="w-full p-2 border border-gray-300 rounded mt-2" rows="3" placeholder="Please enter a brief description" [(ngModel)]="decription"></textarea>
             </div>
             <div class="mt-6 flex justify-end">
-                <button type="button" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded mr-2" onclick="closeModal()">Cancel</button>
-                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Add Client</button>
+                <button type="button" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded mr-2" (click)="closeClientModal()">Cancel</button>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" (click)="addClient()">Add Client</button>
             </div>
         </form>
     </div>
