@@ -7,6 +7,8 @@ import { LoginInResponse } from '../services/model/login-response-representation
 import { HttpErrorResponse } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../services/api/auth.service';
+import { MenuComponent } from '../menu/menu.component';
+import { StandardMenuService } from '../services/standard-menu.service';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +28,8 @@ export class LoginComponent {
 
     constructor(
       private service: UsersService,
-      private authService: AuthService
+      private authService: AuthService,
+      private menuTab:StandardMenuService
     ) {}
 
   
@@ -47,6 +50,13 @@ export class LoginComponent {
             this.loginDataResponse = result;
             if (this.loginDataResponse?.data?.token && this.loginDataResponse.data?.expiresAt) {
               this.authService.updateToken(this.loginDataResponse.data.token, this.loginDataResponse.data.expiresAt);
+              this.menuTab.updateActiveItems('dashboard',true);
+              this.menuTab.updateActiveItems('login',false);
+              this.menuTab.updateActiveItems('signUp',false);
+              this.menuTab.updateActiveItems('logout',true)
+              console.log("me here")
+              console.log(this.menuTab.getTabs());
+
             }
           },
           error: (error: HttpErrorResponse) => {

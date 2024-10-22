@@ -4,8 +4,9 @@
       <h1 class="text-3xl font-bold">BookKeepPro</h1>
       <div class="hidden md:flex space-x-4">
         <a routerLink="/" class="hover:underline">Home</a>
-        <a routerLink="/sign-up" class="hover:underline cursor-pointer">Signup</a>
-        <a routerLink="/login" class="hover:underline">Login</a>
+        <a *ngIf="active_tabs['signUp']" routerLink="/sign-up" class="hover:underline cursor-pointer">Signup</a>
+        <a *ngIf="active_tabs['login']" routerLink="/login" class="hover:underline">Login</a>
+        <a *ngIf="active_tabs['logout']" routerLink="/login" class="hover:underline">Logout</a>
         <a *ngIf="active_tabs['dashboard']"  routerLink="/dashboard" class="hover:underline">Dashboard</a>
       </div>
       <div class="md:hidden">
@@ -20,8 +21,9 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-blue-600">
       <a routerLink="/" class="block text-white px-4 py-2">Home</a>
-      <a routerLink="/sign-up" class="block text-white px-4 py-2">Sign up</a>
-      <a routerLink="/login" class="block text-white px-4 py-2">Login</a>
+      <a *ngIf="active_tabs['signUp']" routerLink="/sign-up" class="block text-white px-4 py-2">Sign up</a>
+      <a *ngIf="active_tabs['login']" routerLink="/login" class="block text-white px-4 py-2">Login</a>
+      <a *ngIf="active_tabs['logout']" routerLink="/login" class="block text-white px-4 py-2">Logout</a>
       <a *ngIf="active_tabs['dashboard']" routerLink="/dashboard" class="block text-white px-4 py-2">Dashboard</a>
     </div>
   </nav>

@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, output } from '@angular/core';
 import { Route, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ActiveMenuRepresentation } from '../services/model/active-menu-representation';
+import { StandardMenuService } from '../services/standard-menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,16 +16,14 @@ import { CommonModule } from '@angular/common';
 })
 export class MenuComponent {
 
-  constructor(
-    private router:Router
-  ){}
+  active_tabs:ActiveMenuRepresentation;
 
-  @Output()
-  active_tabs:{[key:string]:boolean}={
-    'login':true,
-    'dashboard':false,
-    'signUp':true
-  };
+  constructor(
+    private router:Router,
+    private menuAction:StandardMenuService
+  ){
+    this.active_tabs=StandardMenuService.active_tabs;
+  }
 
   
 
@@ -35,11 +35,5 @@ export class MenuComponent {
     }
   }
 
-  @Output()
-  updateActiveItems(name:string, value:boolean){
-    this.active_tabs[name]=value
-  }
-
-  
   
 }
