@@ -27,15 +27,15 @@
                     <tr>
                         <th class="py-3 px-6 text-left">S/N</th>
                         <th class="py-3 px-6 text-left">Name</th>
-                        <th class="py-3 px-6 text-left">Email</th>
                         <th class="py-3 px-6 text-left">Account Number</th>
+                        <th class="py-3 px-6 text-left">Message</th>
                         <th class="py-3 px-6 text-left">More Details</th>
                         <th class="py-3 px-6 text-left">Edit</th>
                         <th class="py-3 px-6 text-left">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <app-dashboard-list *ngFor="let data of clientData; let i = index" [data]="data" [index]="i"></app-dashboard-list>
+                    <app-dashboard-list *ngFor="let data of clientData; let i = index" [data]="data" [index]="i"> </app-dashboard-list>
                     <!-- Sample Data -->
                     <!-- Additional Sample Data Rows -->
                 </tbody>
